@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>84C222C1-1D28-4FBA-B595-94ECE757CA97</string>
+	<key>IDESourceControlProjectName</key>
+	<string>terminder</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D0A218BD-A848-4252-B164-DF3B7270F136</key>
+		<string>https://mobville.unfuddle.com/svn/mobville_mobikasaba/ImageManip</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OSX/terminder/terminder.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D0A218BD-A848-4252-B164-DF3B7270F136</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>D0A218BD-A848-4252-B164-DF3B7270F136</key>
+		<string>https://mobville.unfuddle.com/svn/mobville_mobikasaba</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://mobville.unfuddle.com/svn/mobville_mobikasaba/ImageManip/OSX/terminder/terminder.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D0A218BD-A848-4252-B164-DF3B7270F136</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D0A218BD-A848-4252-B164-DF3B7270F136</string>
+			<key>IDESourceControlWCCName</key>
+			<string>XCode</string>
+		</dict>
+	</array>
+</dict>
+</plist>
