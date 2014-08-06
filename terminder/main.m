@@ -49,11 +49,11 @@ void createReminderLater(NSString *title, NSString *type, NSString *fromNow)
             duration *= 3600;
         else if([type isEqual:@"-d"])
             duration *= 86400;
-        NSDate *date = [NSDate dateWithTimeIntervalSinceNow:duration];
+        NSDate *date = [NSDate dateWithTimeIntervalSinceNow:duration]; // after seconds
         EKAlarm *alarm = [EKAlarm alarmWithAbsoluteDate:date];
         [reminder addAlarm:alarm];
         [es saveReminder:reminder commit:YES error:nil];
-        NSLog(@"reminder added successfully");
+        NSLog(@"reminder added after %ld seconds", (long)duration);
     }
 }
 
@@ -61,8 +61,8 @@ void createReminderOnDate(NSString *title, NSString *date, NSString *dayTime)
 {
     @autoreleasepool {
         NSDateFormatter *df = [[NSDateFormatter alloc]init];
-        [df setDateFormat:@"ZZZ"]; // to get time zone
-        NSString *completeDateStr = [NSString stringWithFormat:@"%@ %@:%@ %@", date, dayTime, @"00", [df stringFromDate:[NSDate date]]]; // date string "yy-MM-dd hh:dd:ss ZZZ"
+        [df setDateFormat:@"ZZZ"]; // to get user's time zone
+        NSString *completeDateStr = [NSString stringWithFormat:@"%@ %@:%@ %@", date, dayTime, @"00", [df stringFromDate:[NSDate date]]]; // date string "yy-mm-dd hh:dd:ss ZZZ"
         EKReminder *reminder = [EKReminder reminderWithEventStore:es];
         reminder.title = title;
         reminder.calendar = [es defaultCalendarForNewReminders];
@@ -70,7 +70,7 @@ void createReminderOnDate(NSString *title, NSString *date, NSString *dayTime)
         EKAlarm *alarm = [EKAlarm alarmWithAbsoluteDate:date];
         [reminder addAlarm:alarm];
         [es saveReminder:reminder commit:YES error:nil];
-        NSLog(@"reminder added successfully.");
+        NSLog(@"reminder added on %@ %@",date ,dayTime);
     }
 }
 
