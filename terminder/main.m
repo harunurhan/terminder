@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <EventKit/EventKit.h>
 
+void startWithoutArgument();
 void createReminderLater(NSString *title, NSString *type, NSString *fromNow);
 void createReminderOnDate(NSString *title, NSString *date, NSString *dayTime);
 NSString* completeBlanks(NSString *date);
@@ -26,7 +27,9 @@ int main(int argc, const char * argv[])
                 exit(-1);
             }
         }];
-        if(!strcmp(argv[1], "-d"))
+        if(argc == 1)
+            startWithoutArgument();
+        else if(!strcmp(argv[1], "-d"))
             createReminderOnDate([NSString stringWithCString:argv[2] encoding:NSASCIIStringEncoding], [NSString stringWithCString:argv[3] encoding:NSASCIIStringEncoding], [NSString stringWithCString:argv[4] encoding:NSASCIIStringEncoding]);
         else if(!strcmp(argv[1],"-l"))
             createReminderLater([NSString stringWithCString:argv[2] encoding:NSASCIIStringEncoding], [NSString stringWithCString:argv[3] encoding:NSASCIIStringEncoding], [NSString stringWithCString:argv[4] encoding:NSASCIIStringEncoding]);
@@ -71,6 +74,30 @@ void createReminderOnDate(NSString *title, NSString *date, NSString *dayTime)
         [reminder addAlarm:alarm];
         [es saveReminder:reminder commit:YES error:nil];
         NSLog(@"reminder added on %@ %@",date ,dayTime);
+    }
+}
+
+void startWithoutArgument()
+{
+    @autoreleasepool {
+        NSLog(@"terminder started!, remind <title> <on/later> <date/timespecifier> <daytime/duration>");
+        char command[5];
+        char type[5];
+        char title[256];
+        char arg1[8];
+        char arg2[8];
+        scanf("%s %s %s %s %s",command,title,type,arg1,arg2);
+        NSLog(@"command: %s %s %s %s %s",command,title,type,arg1,arg2);
+        if(!strcmp(type, "on"))
+            createReminderOnDate([NSString stringWithCString:title encoding:NSASCIIStringEncoding], [NSString stringWithCString:arg1 encoding:NSASCIIStringEncoding], [NSString stringWithCString:arg2 encoding:NSASCIIStringEncoding]);
+        else if(!strcmp(type,"later"))
+            createReminderLater([NSString stringWithCString:title encoding:NSASCIIStringEncoding], [NSString stringWithCString:arg1 encoding:NSASCIIStringEncoding], [NSString stringWithCString:arg2 encoding:NSASCIIStringEncoding]);
+        else
+        {
+            NSLog(@"Undefined type use, 'later' or 'on'");
+            exit(-1);
+        }
+        exit(1);
     }
 }
 
