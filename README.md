@@ -15,7 +15,7 @@ Currently being written in C and Objective-C
 ### Usage
 - `terminder -d <title> yyyy-mm-dd hh:mm` to add reminder on a specific date.
 - `terminder -l <title> <time specifier> <time>` to add reminder on later. Time specifiers are **-d for day, -m for minute -h for hour**
--`terminder`then follow the instruction
+- `terminder`then follow the instruction
 
 ### Example commands
 - `terminder -d myremindertitle 2014-08-10 12:12`
